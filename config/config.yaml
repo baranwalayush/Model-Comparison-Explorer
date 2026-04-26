@@ -1,0 +1,32 @@
+data:
+  source: seaborn          # 'seaborn' loads built-in titanic | 'csv' loads from path below
+  csv_path: data/raw/Titanic-Dataset.csv
+  target_column: survived
+  test_size: 0.2
+  random_state: 42
+
+models:
+  xgboost:
+    n_estimators: 150
+    max_depth: 4
+    learning_rate: 0.1
+    eval_metric: logloss
+    random_state: 42
+  random_forest:
+    n_estimators: 150
+    max_depth: 6
+    random_state: 42
+  lightgbm:
+    n_estimators: 150
+    max_depth: 4
+    learning_rate: 0.1
+    random_state: 42
+    verbose: -1
+
+shap:
+  max_display: 12          # max features shown in plots
+  background_sample: 100  # rows used as SHAP background data
+
+dashboard:
+  title: "SHAP Model Comparison Explorer — Titanic"
+  port: 8501
