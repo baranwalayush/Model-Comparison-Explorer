@@ -1,25 +1,29 @@
 # SHAP Model Comparison Explorer
 
-A fully object-oriented ML project that trains **XGBoost**, **Random Forest**,
-and **LightGBM** on the Titanic dataset, then uses **SHAP** to compare how each
-model explains its predictions.
+A fully object-oriented ML pipeline designed to benchmark and interpret model behavior.
+It trains **XGBoost**, **Random Forest**, and **LightGBM** on the Titanic dataset, 
+then uses **SHAP** to compare how each model explains its predictions. 
+This was a fun project I did to deepen my understanding of XAI, 
+specifically focusing on SHAP to interpret model predictions. Feel free to use or suggest enhancements
 
----
+<!-- ---
+
+![model_comparison_explorer_pipeline image](data/model_comparison_explorer_pipeline.svg) 
+
+--- -->
 
 ## Folder Structure
 
 ```
 shap_comparator/
 ├── config/
-│   └── config.yaml             # All tunable parameters live here
+│   └── config.yaml             # All tunable parameters
 ├── data/
-│   ├── raw/                    # Drop custom CSV here (optional)
+│   ├── raw/                    # Drop custom CSV here (optional, as already handled using seaborn)
 │   └── processed/
-│       └── plots/              # Auto-generated plots (--save-plots)
+│       └── plots/              # Auto-generated plots
 ├── dashboard/
 │   └── app.py                  # Streamlit interactive dashboard
-├── notebooks/
-│   └── exploration.ipynb       # (optional) EDA notebook
 ├── src/
 │   ├── utils.py                # Config loader + logger
 │   ├── data/
@@ -27,7 +31,7 @@ shap_comparator/
 │   │   └── preprocessor.py     # DataPreprocessor
 │   ├── models/
 │   │   ├── base_model.py       # Abstract BaseModel
-│   │   ├── xgboost_model.py    # XGBoostModel
+│   │   ├── xgboost_model.py    
 │   │   ├── random_forest_model.py
 │   │   ├── lightgbm_model.py
 │   │   └── model_registry.py   # ModelRegistry
@@ -81,7 +85,7 @@ Edit `config/config.yaml` to change:
 2. Add it to `ModelRegistry._MODEL_MAP` in `model_registry.py`.
 3. Add its config section in `config.yaml`.
 
-That's it — the pipeline, explainer, and dashboard pick it up automatically.
+The pipeline, explainer, and dashboard will pick it up automatically.
 
 ---
 
